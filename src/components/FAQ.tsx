@@ -7,27 +7,117 @@ const faqs = [
   },
   {
     id: 2,
-    question: 'Est-il vrai que 89–90% des décisions B2B impliquent l\'IA générative?',
+    question: 'Je n\'ai pas de site web moderne. Ça vaut quand même la peine?',
     answer:
-      'Oui. Les études les plus récentes montrent que jusqu\'à 89–90% des acheteurs B2B utilisent au moins une fois l\'IA générative pendant le processus d\'achat: de l\'analyse du marché à la vérification des vendeurs avant le choix final. Les décideurs utilisent ChatGPT, Perplexity, Claude et Gemini pour comparer des fournisseurs, vérifier leur réputation et préparer des questions de négociation.',
+      'Oui, parce que les LLM lisent d\'abord ce qui existe, même si le design est daté, mais ils ont besoin de clarté, de structure et de signaux d\'autorité. Un site imparfait mais structuré pour l\'IA et soutenu par quelques bonnes sources externes vaut mieux qu\'un « beau » site vide de contenu stratégique.',
   },
   {
     id: 3,
-    question: 'À quelles étapes de l\'entonnoir l\'IA influence-t-elle le plus?',
+    question: 'Combien de temps avant que ChatGPT me recommande?',
     answer:
-      'Au milieu de l\'entonnoir, pendant la recherche et la comparaison: l\'IA bâtit rapidement une liste de fournisseurs, analyse les spécifications et réduit le choix à 3–5 vendeurs. C\'est à ce stade critique que votre visibilité dans l\'IA détermine si vous faites partie de la shortlist ou si vous n\'êtes jamais considéré.',
+      'En général, il faut compter 4 à 8 semaines pour voir les premiers changements de réponses sur les requêtes ciblées, selon la concurrence et le volume de signaux que l\'on envoie (pages, mentions, avis, listes « best of »). Les cycles d\'actualisation ne sont pas instantanés, mais ils récompensent les signaux clairs et répétés.',
   },
   {
     id: 4,
+    question: 'C\'est quoi la différence avec le SEO classique?',
+    answer:
+      'Le SEO vise surtout Google et la page de résultats; ici, on vise la réponse que donne l\'IA à une question complète (« Quel fournisseur choisir pour…? »). On travaille donc moins sur des mots-clés isolés et plus sur des scénarios, des comparatifs, des FAQ structurées et des preuves que les LLM peuvent facilement intégrer dans leurs réponses.',
+  },
+  {
+    id: 5,
+    question: 'Je n\'ai pas d\'équipe marketing. C\'est un problème?',
+    answer:
+      'Pas nécessairement. Votre enjeu, ce n\'est pas la quantité de posts, mais la précision des signaux envoyés à l\'IA. Avec une bonne feuille de route et quelques ressources internes (ou un partenaire ponctuel), une PME industrielle peut devenir « visible » pour l\'IA sans embaucher un département marketing complet.',
+  },
+  {
+    id: 6,
+    question: '190$ — qu\'est-ce que je reçois exactement?',
+    answer:
+      'Vous recevez un audit très ciblé de votre visibilité dans ChatGPT, Claude, Perplexity et Gemini sur 12 scénarios réels de votre marché, avec un verdict simple: où vous êtes cité, où vous êtes absent, et pourquoi. Le livrable inclut 3 actions rapides à mettre en place et une mini-feuille de route 60-90 jours pour corriger les angles morts.',
+  },
+  {
+    id: 7,
+    question: 'Et si l\'audit montre que tout va bien?',
+    answer:
+      'Alors vous aurez acheté une assurance peu chère: la certitude que vous faites partie du « shortlist » que l\'IA recommande. Dans ce cas, on se concentre sur le raffinement: mieux contrôler comment vous êtes présenté, sur quels cas d\'usage, et comment passer devant vos concurrents dans les comparatifs.',
+  },
+  {
+    id: 8,
+    question: 'Vous travaillez avec des entreprises hors tech?',
+    answer:
+      'Oui, surtout avec des industriels, des fabricants et des entreprises B2B qui n\'ont pas une culture « marketing digital » forte, mais qui dépendent déjà de l\'export et des appels d\'offres. Justement, ces entreprises ont le plus à gagner, parce que leurs concurrents plus « marketés » occupent l\'espace dans les réponses d\'IA.',
+  },
+  {
+    id: 9,
+    question: 'Comment ça se passe concrètement? Appels, réunions?',
+    answer:
+      'On commence par un court appel de cadrage (30-45 min) pour comprendre votre offre, vos marchés et 3-5 concurrents clés. Ensuite, je travaille en asynchrone (tests, analyses, rapport) et on se revoit sur une session de restitution pour valider les priorités et les prochaines étapes avec votre direction.',
+  },
+  {
+    id: 10,
+    question: 'Je peux voir un exemple de rapport avant de payer?',
+    answer:
+      'Oui, je peux partager un extrait anonymisé montrant la structure: scénarios testés, réponses LLM, tableau comparatif, diagnostic et plan d\'action. L\'objectif n\'est pas de faire « beau », mais de vous donner un document que votre direction peut lire en 15 minutes et transformer en décisions concrètes.',
+  },
+  {
+    id: 11,
+    question: 'Est-il vrai que 89–90% des décisions B2B impliquent l\'IA générative?',
+    answer:
+      'Oui. Les études les plus récentes montrent que jusqu\'à 89–90% des acheteurs B2B utilisent au moins une fois l\'IA générative pendant le processus d\'achat: de l\'analyse du marché à la vérification des vendeurs avant le choix final. Ce n\'est plus une exotique, c\'est un nouveau standard en B2B.',
+  },
+  {
+    id: 12,
+    question: 'À quelles étapes de l\'entonnoir l\'IA influence-t-elle le plus?',
+    answer:
+      'Au milieu de l\'entonnoir, pendant la recherche et la comparaison: l\'IA aide à bâtir rapidement une liste de fournisseurs, à analyser des spécifications, à résumer les avantages/inconvénients et à réduire le choix à 3–5 vendeurs. Aux étapes finales, l\'IA est de plus en plus utilisée pour analyser des propositions commerciales et suggérer des pistes de négociation.',
+  },
+  {
+    id: 13,
     question: 'Comment ChatGPT influence-t-il la constitution d\'une liste courte de fournisseurs?',
     answer:
       'Au lieu de parcourir manuellement des dizaines de sites, l\'acheteur pose à ChatGPT une question du type « Meilleures solutions pour [tâche] dans [région] » et obtient une liste déjà structurée. Si votre marque n\'apparaît pas dans ces réponses, vous n\'êtes tout simplement pas dans le radar: ni dans la liste courte, ni dans le CRM du client.',
   },
   {
-    id: 5,
+    id: 14,
     question: 'La recherche IA remplace-t-elle la recherche Google classique en B2B?',
     answer:
       'Selon des études de 2025, pour environ un quart des acheteurs B2B, l\'IA générative est déjà devenue plus importante que la recherche classique pour choisir des vendeurs. Dans le segment tech, plus de la moitié des acheteurs utilisent des chatbots et la recherche IA comme source majeure pour découvrir de nouveaux fournisseurs. Ce changement s\'accélère.',
+  },
+  {
+    id: 15,
+    question: 'Qu\'est-ce que l\'IA « lit » sur mon entreprise quand elle construit ses réponses?',
+    answer:
+      'L\'IA s\'appuie sur un ensemble de signaux: votre site, vos cas et votre documentation, des revues sectorielles, des données sur des plateformes d\'avis, des répertoires, des médias et tout contenu structuré qu\'elle a pu indexer. Les marques fortes, ce ne sont pas seulement des logos, mais un « profil numérique » clair et cohérent que les algorithmes peuvent assembler facilement dans une réponse.',
+  },
+  {
+    id: 16,
+    question: 'L\'IA peut-elle recommander des vendeurs « moins bons » mais plus bruyants?',
+    answer:
+      'Oui, et c\'est le problème central. Les modèles ne mesurent pas votre compétence réelle; ils classent ce qu\'ils ont réussi à lire et à comprendre. Des acteurs très actifs en marketing, mais moyens en qualité, peuvent paraître plus convaincants dans les réponses IA que des entreprises discrètes mais très solides.',
+  },
+  {
+    id: 17,
+    question: 'Mon marché est très de niche. L\'IA peut vraiment m\'aider?',
+    answer:
+      'Justement, plus le marché est de niche, plus une bonne empreinte numérique peut faire la différence quand un acheteur tape une question très spécifique. Dans les marchés étroits, une poignée de contenus bien structurés et quelques sources d\'autorité suffisent pour devenir « la » référence que l\'IA cite.',
+  },
+  {
+    id: 18,
+    question: 'Si l\'IA raconte des choses fausses sur mon entreprise, que faire?',
+    answer:
+      'On commence par cartographier d\'où viennent ces informations (anciens communiqués, agrégateurs, articles, profils). Ensuite, on corrige à la source et on injecte des contenus clairs, à jour et bien structurés, que les LLM peuvent préférer. Le but est de « ré-enseigner » à l\'IA qui vous êtes réellement.',
+  },
+  {
+    id: 19,
+    question: 'Qu\'est-ce qui vous différencie d\'une agence SEO classique?',
+    answer:
+      'Une agence SEO va surtout parler de trafic, de positions et de mots-clés. Ici, l\'indicateur nº1 est différent: « Est-ce que l\'IA me recommande dans les situations où mes clients cherchent un fournisseur comme moi? ». Toute la démarche est construite autour de ces scénarios de décision, pas autour de vanity metrics.',
+  },
+  {
+    id: 20,
+    question: 'Quel est le risque si je ne fais rien pendant encore 1-2 ans?',
+    answer:
+      'Le risque n\'est pas « d\'être mal classé », mais de devenir invisible dans les nouveaux réflexes d\'achat: une partie croissante des décideurs commence par l\'IA et ne vous verra jamais, même si votre produit est meilleur. Vos concurrents qui travaillent déjà leur visibilité LLM verrouillent doucement la place.',
   },
 ]
 
