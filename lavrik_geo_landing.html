@@ -909,16 +909,18 @@ footer{
     <div class="modal-tag">⚡ Audit express</div>
     <h3>Votre visibilité IA<br>en <em>48 heures</em>.</h3>
     <p class="modal-sub">Laissez votre numéro et votre site.<br>Je vous envoie une analyse préliminaire — sans engagement, sans frais.</p>
-    <form class="modal-form" action="https://formsubmit.co/pr.expert4488@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="⚡ Audit Express — Nouvelle demande">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="tel" name="telephone" placeholder="Votre téléphone" required>
-      <input type="text" name="site" placeholder="URL ou nom de votre site" required>
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;font-size:1rem;">
+    <form class="modal-form" id="audit-express-form" onsubmit="submitAuditForm(event)">
+      <input type="tel" id="audit-tel" placeholder="Votre téléphone" required>
+      <input type="text" id="audit-site" placeholder="URL ou nom de votre site" required>
+      <button type="submit" id="audit-btn" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;font-size:1rem;">
         Lancer mon audit — 48h →
       </button>
     </form>
+    <div id="audit-success" style="display:none;text-align:center;padding:1.5rem 0;">
+      <div style="font-size:2rem;margin-bottom:.5rem;">✅</div>
+      <p style="color:var(--acc);font-weight:700;margin:0 0 .4rem;">Message reçu !</p>
+      <p style="color:var(--t2);font-size:.9rem;margin:0;">Je vous contacte dans les 48 heures.</p>
+    </div>
     <p class="modal-legal">Aucun engagement · Réponse sous 48 h · Données strictement confidentielles</p>
   </div>
 </div>
@@ -1818,6 +1820,31 @@ new IntersectionObserver(function(entries){
     }
   });
 },{threshold:.3}).observe(document.getElementById('stats'));
+</script>
+
+<script>
+async function submitAuditForm(e) {
+  e.preventDefault();
+  const tel  = document.getElementById('audit-tel').value.trim();
+  const site = document.getElementById('audit-site').value.trim();
+  const btn  = document.getElementById('audit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours...';
+  const msg = `📋 NOUVELLE DEMANDE AUDIT EXPRESS\n\n📞 Téléphone : ${tel}\n🌐 Site : ${site}\n\n⏱ Répondre sous 48 h`;
+  try {
+    await fetch(`https://api.telegram.org/bot8518291943:AAGphao7tGyLBK7Y_DapWiFtPCgDCk0UKZc/sendMessage`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({chat_id: 888828864, text: msg})
+    });
+    document.getElementById('audit-express-form').style.display = 'none';
+    document.getElementById('audit-success').style.display = 'block';
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = 'Lancer mon audit — 48h →';
+    alert('Erreur réseau. Veuillez réessayer ou écrire à pr.expert4488@gmail.com');
+  }
+}
 </script>
 
 </body>
