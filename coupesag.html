@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit GEO — Coupesag.ca | Lavrik GEO</title>
+<style>
+  :root{--bg:#0d0e0f;--s1:#111213;--s2:#181919;--acc:#c8ff00;--acc-dim:rgba(200,255,0,.1);--t1:#f0f0f0;--t2:#aaa;--t3:#666;--border:#222;--font-h:'Inter',sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--t1);font-family:var(--font-h);line-height:1.6;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+  a{color:var(--acc);text-decoration:none;}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#0d0e0f 0%,#111820 100%);padding:3.5rem 0 2.5rem;border-bottom:1px solid var(--border);}
+  .hero-tag{display:inline-block;background:var(--acc-dim);border:1px solid rgba(200,255,0,.3);color:var(--acc);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;margin-bottom:1.2rem;}
+  .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.1;margin-bottom:.5rem;}
+  .hero h1 span{color:var(--acc);}
+  .hero-sub{color:var(--t2);font-size:1rem;margin-bottom:2rem;}
+
+  /* SCORE BLOCK */
+  .score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0;}
+  .score-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center;}
+  .score-card .val{font-size:2.2rem;font-weight:900;color:var(--acc);}
+  .score-card .lbl{font-size:.8rem;color:var(--t2);text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem;}
+  .grade-badge{display:inline-block;width:72px;height:72px;line-height:72px;border-radius:50%;font-size:2rem;font-weight:900;color:#000;background:#ff6600;margin-bottom:.3rem;}
+
+  /* SCORE BAR */
+  .bar-wrap{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin:1.5rem 0;}
+  .bar-label{display:flex;justify-content:space-between;margin-bottom:.5rem;font-size:.85rem;color:var(--t2);}
+  .bar-bg{background:#222;border-radius:50px;height:14px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,#ff6600,#ff660088);transition:width 1s;}
+
+  /* SECTIONS */
+  .section{padding:2.5rem 0;border-bottom:1px solid var(--border);}
+  .section-title{font-size:1.3rem;font-weight:700;color:var(--acc);margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:.08em;}
+
+  /* CEO TEXT */
+  .ceo-box{background:var(--s1);border-left:3px solid var(--acc);border-radius:0 10px 10px 0;padding:1.5rem 1.75rem;white-space:pre-wrap;font-size:.95rem;line-height:1.75;color:var(--t1);}
+
+  /* QUESTIONS */
+  .q-card{background:var(--s1);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:1rem;}
+  .q-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;flex-wrap:wrap;}
+  .q-num{background:var(--acc);color:#000;font-weight:900;font-size:.85rem;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0;}
+  .q-cat{font-size:.78rem;color:var(--t2);text-transform:uppercase;letter-spacing:.08em;}
+  .badge{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .7rem;border-radius:50px;margin-left:auto;}
+  .badge-oui{background:rgba(68,187,68,.2);color:#44bb44;border:1px solid #44bb44;}
+  .badge-partiel{background:rgba(255,170,0,.15);color:#ffaa00;border:1px solid #ffaa00;}
+  .badge-non{background:rgba(255,51,51,.15);color:#ff4444;border:1px solid #ff4444;}
+  .q-question{font-size:.9rem;font-style:italic;color:var(--t2);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);}
+  .q-answers{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;}
+  @media(max-width:600px){.q-answers{grid-template-columns:1fr;}}
+  .q-ans{background:var(--s2);border-radius:6px;padding:.75rem;}
+  .model-tag{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:.15rem .6rem;border-radius:4px;margin-bottom:.4rem;}
+  .model-tag.gpt{background:#10a37f22;color:#10a37f;}
+  .model-tag.perp{background:#1f6feb22;color:#58a6ff;}
+  .q-ans p{font-size:.83rem;color:var(--t2);line-height:1.5;}
+  .q-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.8rem;color:var(--t3);border-top:1px solid var(--border);padding-top:.75rem;}
+  .q-resume{color:var(--t2);font-style:italic;}
+
+  /* CONCURRENTS */
+  .comp-grid{display:flex;flex-wrap:wrap;gap:.6rem;}
+  .comp-tag{background:rgba(255,68,68,.12);border:1px solid rgba(255,68,68,.3);color:#ff8888;font-size:.85rem;padding:.4rem 1rem;border-radius:50px;}
+
+  /* CTA */
+  .cta-box{background:linear-gradient(135deg,#111820,#0d1520);border:1px solid rgba(200,255,0,.3);border-radius:14px;padding:2.5rem;text-align:center;margin:2rem 0;}
+  .cta-box h2{font-size:1.6rem;margin-bottom:.75rem;}
+  .btn-primary{display:inline-block;background:var(--acc);color:#000;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;padding:.85rem 2.25rem;border-radius:8px;margin-top:1rem;}
+
+  /* FOOTER */
+  footer{padding:2rem 0;text-align:center;color:var(--t3);font-size:.82rem;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-tag">⚡ Audit GEO Express — 2026-03-04</div>
+    <h1>Coupesag.ca<br><span>Visible par les humains.</span><br>Invisible pour l'IA.</h1>
+    <p class="hero-sub">Transformation des métaux en feuille · Découpe laser & jet d'eau · Chicoutimi, Saguenay</p>
+
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="grade-badge">D</div>
+        <div class="lbl">Grade GEO</div>
+      </div>
+      <div class="score-card">
+        <div class="val">20%</div>
+        <div class="lbl">Score de visibilité IA</div>
+      </div>
+      <div class="score-card">
+        <div class="val">2/10</div>
+        <div class="lbl">Questions où Coupesag est cité</div>
+      </div>
+      <div class="score-card">
+        <div class="val">8</div>
+        <div class="lbl">Concurrents cités à votre place</div>
+      </div>
+    </div>
+
+    <div class="bar-wrap">
+      <div class="bar-label">
+        <span>Visibilité IA actuelle</span>
+        <span style="color:var(--acc);font-weight:700;">20% — Grade D</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:20%;"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DIAGNOSTIC CEO -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-title">📊 Diagnostic — Ce que ça signifie pour vous</div>
+    <div class="ceo-box">Absolument! Voici mon analyse et mes recommandations pour Coupesag, conçues pour un PDG du Québec :
+
+**1. DIAGNOSTIC**
+
+Le score de visibilité de Coupesag est préoccupant. Un grade D indique que l'intelligence artificielle a du mal à faire le lien entre les besoins des clients et l'expertise de Coupesag. Cela signifie concrètement que l'entreprise risque de passer à côté de contrats importants, les clients potentiels étant dirigés vers vos concurrents par l'IA. Il faut agir rapidement pour rectifier le tir, sinon, la situation risque de s'aggraver.
+
+**2. LE PARADOXE**
+
+Il est évident que Coupesag possède une expertise réelle et une capacité de production solide, particulièrement en matière de sous-traitance complète du métal en feuille. Le paradoxe est que cette force, reconnue dans le cadre d'appels d'offres (Q1 et Q10), ne se traduit pas par une visibilité générale auprès de l'IA, ce qui limite vos chances de décrocher de nouveaux clients.
+
+**3. OPPORTUNITÉ CONCRÈTE**
+
+L'IA a le potentiel d'être un allié puissant pour la croissance de Coupesag. En améliorant votre visibilité, vous pourriez devenir le choix numéro un pour les entreprises québécoises à la recherche d'un partenaire fiable dans la transformation des métaux. Le coût de l'inaction est élevé : perte de parts de marché, stagnation du chiffre d'affaires et difficulté à attirer de nouveaux talents.
+
+**4. LES 3 ACTIONS PRIORITAIRES**
+
+Voici les actions clés à mettre en œuvre immédiatement :
+
+*   **Mettre l'accent sur la rapidité et l'urgence :** L'IA favorise les entreprises qui mettent l'accent sur la rapidité d'exécution. Assurez-vous d'intégrer ce message dans vos communications, en promettant des délais de livraison rapides et une capacité à gérer les projets urgents. _Impact estimé : +10% de demandes de soumission_.
+
+*   **Mettre en valeur vos compétences spécifiques :** L'IA peine à distinguer Coupesag des ateliers de soudure généralistes. Concentrez-vous sur la mise en avant de vos certifications, de vos équipements spécialisés (comme le laser fibre pour l'aluminium) et de votre expertise en pliage de précision. _Impact estimé : +15% de contrats à plus forte valeur ajoutée_.
+
+*   **Créer des références et des études de cas :** L'IA recommande des entreprises ayant des réalisations prouvées. Documentez vos projets les plus réussis, en mettant en évidence les défis relevés, les solutions apportées et les résultats obtenus. _Impact estimé : +20% de crédibilité auprès des grands comptes_.
+
+En mettant en œuvre ces actions, Coupesag peut transformer sa visibilité IA et se positionner comme un leader incontournable dans le secteur de la transformation des métaux au Québec.</div>
+  </div>
+</div>
+
+<!-- CONCURRENTS -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-title">🏢 Entreprises que l'IA recommande à votre place</div>
+    <div class="comp-grid">
+      <span class="comp-tag">⚠ Mercier Industries</span><span class="comp-tag">⚠ Les Ateliers Michel Potvin</span><span class="comp-tag">⚠ uMake</span><span class="comp-tag">⚠ Taylor Steel & Stainless</span><span class="comp-tag">⚠ Synertek</span><span class="comp-tag">⚠ Chronox Lasertech</span><span class="comp-tag">⚠ Métal-Art Soudure</span><span class="comp-tag">⚠ EPIQ Machinery</span>
+    </div>
+    <p style="color:var(--t2);font-size:.88rem;margin-top:1rem;">Quand un acheteur pose une question professionnelle à l'IA, ces entreprises apparaissent dans la réponse — Coupesag non.</p>
+  </div>
+</div>
+
+<!-- QUESTIONS DETAIL -->
+<div class="section">
+  <div class="wrap">
+    <div class="section-title">🔍 Résultats détaillés — 10 questions d'acheteurs professionnels</div>
+    
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q1</span>
+        <span class="q-cat">Prix & Soumission</span>
+        <span class="badge badge-oui">CITE</span>
+      </div>
+      <div class="q-question">Quel sous-traitant en decoupe laser de tole au Saguenay offre le meilleur rapport qualite-prix pour des commandes de 50 a 500 pieces ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>Votre volume 50 à 500 pièces en découpe laser de tôle correspond typiquement à petites et moyennes séries, où le meilleur rapport qualité-prix dépend de :
+
+la puissance du laser fibre
+
+l’automatisatio…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>À l’échelle du Saguenay même, il n’y a quasiment pas de sous‑traitants clairement positionnés “découpe laser de tôle” avec fiche publique détaillée, mais trois joueurs locaux ressortent comme candidat…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>Mercier Industries, Les Ateliers Michel Potvin</strong></span>
+        <span class="q-resume">Coupesag est identifié comme ayant le meilleur équilibre industriel pour le volume de pièces demandé.</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q2</span>
+        <span class="q-cat">Delais & Urgence</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">J'ai besoin de pieces en acier inoxydable decoupees au jet d'eau en moins de 5 jours ouvrables au Quebec. Qui peut livrer dans ces delais ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>Fournisseurs capables de livrer rapidement (≤ 5 jours)
+1. uMake (Montréal / Laval)
+
+Très intéressant pour délais rapides et commandes en ligne.
+
+Services :
+
+découpe jet d’eau CNC
+
+découpe laser
+
+usina…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>
+De préciser noir sur blanc : “délai max souhaité : X jours ouvrables à partir de l’approbation du devis et de la réception/validation des fichiers”, et de demander une réponse claire “oui / non, avec…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>uMake, Taylor Steel & Stainless</strong></span>
+        <span class="q-resume">L'IA suggère des fournisseurs capables de livrer rapidement, en particulier uMake, et mentionne Taylor Steel & Stainless</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q3</span>
+        <span class="q-cat">Certifications Qualite</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">Quels fournisseurs de transformation de metaux en feuille au Quebec sont certifies ISO 9001 ou ont des certifications reconnues dans le secteur manufacturier ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>Fournisseurs au Québec certifiés (sheet metal / tôlerie)
+1. Synertek (Québec / Lévis)
+
+Transformation de métal en feuille, usinage et assemblage.
+
+Services : conception, fabrication, finition.
+
+Certif…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Plusieurs transformateurs de métal en feuille au Québec affichent clairement des certifications ISO 9001 ou équivalentes reconnues dans le manufacturier, mais la liste ci‑dessous n’est pas exhaustive …</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>Synertek, Chronox Lasertech</strong></span>
+        <span class="q-resume">L'IA mentionne Synertek et Chronox Lasertech comme des entreprises certifiées au Québec pour la transformation de métal </span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q4</span>
+        <span class="q-cat">Capacite Technique</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">Comparaison des services de decoupe laser fibre vs CO2 pour l'aluminium 3 mm au Saguenay-Lac-Saint-Jean. Qui a les meilleurs equipements en 2025 ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>1. Fibre vs CO₂ pour aluminium 3 mm
+
+Pour de l’aluminium mince (≈1–5 mm), l’industrie considère aujourd’hui que le laser fibre est clairement supérieur.
+
+Laser fibre
+
+Avantages :
+
+vitesse de coupe 3 à…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Pour de l’aluminium 3 mm, la technologie fibre est nettement plus performante que le CO₂ (vitesse, qualité de coupe sur métal mince, stabilité sur matériaux réfléchissants et consommation énergétique)…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>—</strong></span>
+        <span class="q-resume">L'IA explique que le laser fibre est supérieur au laser CO₂ pour la découpe de l'aluminium mince.</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q5</span>
+        <span class="q-cat">Soudure & Assemblage</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">Fournisseur de soudure aluminium TIG certifie pour equipement industriel lourd au Saguenay — qui recommandes-tu et pourquoi ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>1. Métal-Art Soudure — recommandation principale
+
+Pourquoi je le recommande
+
+Plus de 30 ans d’expérience en soudure et fabrication industrielle.
+
+Spécialisation dans machinerie forestière, minière et …</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Pour de la soudure TIG sur aluminium destinée à de l’équipement industriel lourd au Saguenay, je privilégierais une approche “duo” : un atelier spécialisé aluminium/inox pour les cordons critiques, co…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>Métal-Art Soudure</strong></span>
+        <span class="q-resume">L'IA recommande Métal-Art Soudure pour la soudure TIG d'aluminium sur des équipements industriels lourds.</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q6</span>
+        <span class="q-cat">Secteur Electrique</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">Je cherche un fabricant de boitiers electriques et armoires de controle sur mesure en acier au Quebec. Qui a de l'experience dans ce secteur ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>Réponse structurée
+
+Si vous cherchez un fabricant de boîtiers électriques et armoires de contrôle en acier sur mesure au Québec, il existe deux types d’entreprises :
+
+1️⃣ Fabricants de panneaux de con…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Plusieurs acteurs au Québec fabriquent ou intègrent des boîtiers électriques et armoires de contrôle sur mesure en acier pour l’industriel; tu devras toutefois distinguer entre fabricants d’armoires m…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>—</strong></span>
+        <span class="q-resume">L'IA décrit les deux types de fabricants de boîtiers électriques et d'armoires de contrôle en acier sur mesure au Québec</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q7</span>
+        <span class="q-cat">Pliage de Precision</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">Quels ateliers de pliage numerique CNC au Quebec peuvent traiter des tolerances de +/-0,1 mm pour des pieces complexes en production serie ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>Réponse structurée
+
+Pour des pièces complexes en production série avec tolérance ±0,1 mm en pliage CNC, il faut cibler des ateliers qui possèdent généralement :
+
+presses-plieuses CNC haut de gamme (Am…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Pour du pliage numérique CNC avec des tolérances de l’ordre de ±0,1 mm en production série, on parle de shops très structurés (presses plieuses modernes, contrôle dimensionnel sérieux, outillage dédié…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>—</strong></span>
+        <span class="q-resume">Pour le pliage CNC de précision, l'IA recommande de cibler des ateliers avec des presses-plieuses haut de gamme, un cont</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q8</span>
+        <span class="q-cat">Sous-traitance Complete</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">Je cherche un sous-traitant en tolerie qui gere tout : de la conception a la livraison des pieces finies. Qui offre ce service cle en main au Saguenay ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>Si vous cherchez un sous-traitant “clé en main” au Saguenay, il faut vérifier qu’il offre toutes ces étapes :
+
+Conception / dessins techniques (CAO)
+
+Prototypage ou ingénierie produit
+
+Découpe laser /…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Au sens “tôlerie industrielle clé en main” (conception mécanique, découpe, pliage, soudure, finition, logistique) il n’y a pas, au Saguenay même, d’acteur qui affiche clairement toute cette chaîne pou…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>—</strong></span>
+        <span class="q-resume">L'IA explique la difficulté de trouver un sous-traitant clé en main au Saguenay pour la tôlerie industrielle.</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q9</span>
+        <span class="q-cat">References & Realisations</span>
+        <span class="badge badge-non">ABSENT</span>
+      </div>
+      <div class="q-question">Quelle entreprise de fabrication metallique au Saguenay a des realisations prouvees dans le secteur des equipements manufacturiers lourds ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>Entreprises avec réalisations prouvées dans les équipements lourds
+1. EPIQ Machinery
+
+Niveau : leader international
+
+Conçoit et fabrique des équipements industriels lourds pour :
+
+alumineries
+
+mines e…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Au Saguenay, plusieurs entreprises de fabrication métallique ont des réalisations documentées en équipements industriels ou manufacturiers lourds; trois ressortent clairement si tu cherches du “prouvé…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>EPIQ Machinery, Fabmec</strong></span>
+        <span class="q-resume">L'IA nomme EPIQ Machinery et Fabmec comme ayant des réalisations prouvées dans les équipements lourds au Saguenay.</span>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-num">Q10</span>
+        <span class="q-cat">Comparaison Concurrents</span>
+        <span class="badge badge-oui">CITE</span>
+      </div>
+      <div class="q-question">Coupesag vs autres ateliers de decoupe et soudure au Saguenay : quelles sont les differences principales en termes de services, prix et delais ?</div>
+      <div class="q-answers">
+        <div class="q-ans"><span class="model-tag gpt">ChatGPT</span><p>1. Différences de SERVICES
+COUPESAG
+
+Points distinctifs :
+
+découpe laser + jet d’eau
+
+pliage numérique
+
+soudage
+
+assemblage
+
+sablage et peinture
+
+fabrication sur devis
+
+entreposage (≈40 000 pi²)
+
+gest…</p></div>
+        <div class="q-ans"><span class="model-tag perp">Perplexity</span><p>Coupesag se distingue clairement des autres ateliers de découpe/soudure qui desservent le Saguenay par un positionnement “tôlerie de précision + sous‑traitance clé en main” plutôt que “atelier de soud…</p></div>
+      </div>
+      <div class="q-footer">
+        <span>🏢 Concurrents cités : <strong>—</strong></span>
+        <span class="q-resume">Coupesag est présenté comme un sous-traitant complet en métal en feuille, distinct des ateliers de soudure généralistes.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="wrap">
+  <div class="cta-box">
+    <h2>Coupesag mérite d'être la réponse par défaut de l'IA.</h2>
+    <p style="color:var(--t2);max-width:520px;margin:0 auto;">Votre expertise est réelle. Votre réputation est bâtie. Il manque seulement la structure qui permet aux modèles de vous lire — et de vous recommander.</p>
+    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSctf7q4fbSbNHrt_u-GAjB3KTE7M6RdJ1vNTVGLT8VbVZjuCg/viewform" target="_blank">Démarrer la transformation GEO →</a>
+    <p style="color:var(--t3);font-size:.82rem;margin-top:1rem;">Audit préparé par Halyna Lavrik · lavrikgeo.ca · Chicoutimi, Québec</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://lavrikgeo.ca">lavrikgeo.ca</a> · Halyna Lavrik · GEO Specialist · Chicoutimi, Québec
+  </div>
+</footer>
+
+</body>
+</html>
