@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Галина Лаврік — AI Automation Specialist</title>
+<title>Галина Лаврік — AI-автоматизація для бізнесу</title>
 <style>
   :root {
     --bg: #09090b;
@@ -18,16 +18,6 @@
     --t3: #71717a;
     --border: rgba(255,255,255,.08);
     --r: 14px;
-    /* keep old names mapped for compatibility */
-    --blue: #c8ff00;
-    --blue-light: #a8e000;
-    --dark: #09090b;
-    --gray: #111113;
-    --text: #fafafa;
-    --muted: #c4c4cc;
-    --white: #09090b;
-    --accent: rgba(200,255,0,.12);
-    --green: #c8ff00;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--t1); background: var(--bg); line-height: 1.6; }
@@ -36,145 +26,138 @@
   /* ── NAVBAR ── */
   nav { background: var(--s1); border-bottom: 1px solid var(--border); padding: 0 5%; position: sticky; top: 0; z-index: 100; }
   .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--acc); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; color: var(--acc); }
+  .nav-logo img { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; }
   .nav-cta { background: var(--acc); color: #000; padding: 8px 20px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; }
   .nav-cta:hover { background: var(--acc2); }
 
   /* ── HERO ── */
-  .hero { background: var(--s2); color: var(--t1); padding: 80px 5% 60px; }
-  .hero-inner { max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 60px; align-items: center; }
-  .hero-tag { background: rgba(255,255,255,0.12); display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; color: #93c5fd; }
-  .hero h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.25; margin-bottom: 20px; }
-  .hero h1 span { color: var(--acc); }
-  .hero-sub { font-size: 1.1rem; color: var(--t2); margin-bottom: 36px; max-width: 520px; }
-  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-primary { background: var(--acc); color: #000; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; display: inline-block; }
-  .btn-primary:hover { background: var(--acc2); }
-  .btn-secondary { background: transparent; color: var(--t1); padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; border: 2px solid rgba(200,255,0,0.4); display: inline-block; color: var(--acc); }
-  .btn-secondary:hover { border-color: rgba(200,255,0,0.7); }
-  .hero-bullets { display: flex; flex-direction: column; gap: 10px; margin-top: 32px; }
-  .hero-bullet { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--t2); }
-  .hero-bullet::before { content: "✓"; color: var(--acc); font-weight: 700; flex-shrink: 0; }
-  .hero-photo { position: relative; }
-  .hero-photo img { width: 100%; max-width: 360px; border-radius: 16px; display: block; object-fit: cover; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-  .photo-badge { position: absolute; bottom: 20px; left: -20px; background: var(--s3); color: var(--t1); padding: 10px 16px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.4); font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
-  .photo-badge span { color: var(--acc); }
+  .hero { background: var(--s2); padding: 80px 5% 60px; }
+  .hero-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .hero-tag { background: var(--acc-dim); border: 1px solid rgba(200,255,0,.3); display: inline-block; padding: 5px 16px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 24px; color: var(--acc); }
+  .hero h1 { font-size: 2.6rem; font-weight: 900; line-height: 1.2; margin-bottom: 24px; }
+  .hero h1 em { font-style: normal; color: var(--acc); }
+  .hero-sub { font-size: 1.15rem; color: var(--t2); margin-bottom: 36px; max-width: 580px; margin-left: auto; margin-right: auto; }
+  .hero-cta { display: inline-block; background: var(--acc); color: #000; font-weight: 800; font-size: 1.05rem; padding: 16px 36px; border-radius: 8px; }
+  .hero-cta:hover { background: var(--acc2); }
+  .hero-note { font-size: 0.82rem; color: var(--t3); margin-top: 12px; }
 
-  /* ── HOOK ── */
-  .hook { background: var(--s1); padding: 70px 5%; }
-  .hook-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-  .hook-quote { font-size: 1.4rem; font-weight: 600; line-height: 1.6; color: var(--t1); margin-bottom: 40px; }
-  .hook-quote em { color: var(--acc); font-style: normal; }
-  .hook-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .stat-card { background: var(--s2); border-radius: 12px; padding: 28px 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
-  .stat-num { font-size: 2.8rem; font-weight: 800; color: var(--acc); line-height: 1; }
-  .stat-label { font-size: 0.9rem; color: var(--t2); margin-top: 8px; }
-
-  /* ── SECTION HEADER ── */
-  .section { padding: 80px 5%; background: var(--bg); }
-  .section-gray { background: var(--s2); }
+  /* ── SECTION BASE ── */
+  section { padding: 64px 5%; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--acc); margin-bottom: 12px; }
-  .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 14px; }
-  .section-sub { font-size: 1.05rem; color: var(--t2); max-width: 600px; margin-bottom: 48px; }
+  .section-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--acc); margin-bottom: 12px; }
+  .section-title { font-size: 2rem; font-weight: 800; line-height: 1.25; margin-bottom: 16px; }
+  .section-sub { color: var(--t2); font-size: 1.05rem; max-width: 640px; }
 
-  /* ── SERVICES GRID ── */
-  .services-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; align-items: start; }
-  .geo-card { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); border: 1px solid var(--acc); color: var(--t1); border-radius: 16px; padding: 36px 30px; }
-  .geo-card .price { font-size: 2.4rem; font-weight: 800; margin: 12px 0; }
-  .geo-card .price sub { font-size: 1rem; font-weight: 400; }
-  .geo-card h3 { font-size: 1.3rem; font-weight: 700; }
-  .geo-card p { font-size: 0.9rem; opacity: 0.85; margin: 10px 0 20px; line-height: 1.5; }
-  .geo-list { list-style: none; margin: 0 0 28px; }
-  .geo-list li { padding: 5px 0; font-size: 0.88rem; opacity: 0.9; }
-  .geo-list li::before { content: "→ "; }
-  .btn-white { background: var(--acc); color: #000; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; display: inline-block; text-align: center; width: 100%; }
-  .btn-white:hover { background: var(--acc2); }
+  /* ── PAIN ── */
+  .pain { background: var(--s1); }
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 40px; }
+  .pain-card { background: var(--s3); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
+  .pain-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .pain-card p { color: var(--t2); font-size: 0.95rem; line-height: 1.5; }
 
-  /* ── ACCORDION ── */
-  .agents-header { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; }
-  .agents-sub { font-size: 0.9rem; color: var(--t2); margin-bottom: 20px; }
-  .accordion { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--s1); }
-  .acc-item { border-bottom: 1px solid var(--border); }
-  .acc-item:last-child { border-bottom: none; }
-  .acc-trigger { width: 100%; text-align: left; padding: 18px 20px; background: var(--s2); border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-size: 0.95rem; font-weight: 600; color: var(--t1); }
-  .acc-trigger:hover { background: var(--s3); }
-  .acc-meta { display: flex; align-items: center; gap: 12px; margin-left: auto; margin-right: 12px; }
-  .acc-tag { font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--acc-dim); color: var(--acc); }
-  .acc-price { font-size: 0.85rem; color: var(--acc); font-weight: 700; }
-  .acc-arrow { font-size: 0.8rem; color: var(--t3); transition: transform 0.2s; }
-  .acc-body { display: none; padding: 0 20px 20px; font-size: 0.9rem; color: var(--t2); line-height: 1.6; background: var(--s1); }
-  .acc-body.open { display: block; }
-  .acc-pain { background: rgba(245,158,11,0.1); border-left: 3px solid #f59e0b; padding: 10px 14px; border-radius: 0 6px 6px 0; margin: 12px 0; font-size: 0.88rem; color: #fcd34d; }
-  .acc-pain strong { display: block; margin-bottom: 4px; }
-  .acc-solution { color: var(--t1); margin-top: 10px; }
+  /* ── NUMBERS ── */
+  .numbers { background: var(--bg); }
+  .numbers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px; }
+  .num-card { background: var(--s2); border: 1px solid rgba(200,255,0,.2); border-radius: var(--r); padding: 32px 24px; text-align: center; }
+  .num-card .big { font-size: 3rem; font-weight: 900; color: var(--acc); line-height: 1; margin-bottom: 10px; }
+  .num-card p { color: var(--t2); font-size: 0.9rem; }
 
-  /* ── PROOF ── */
-  .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .proof-card { border: 1px solid var(--border); border-radius: 12px; padding: 28px; background: var(--s2); }
-  .proof-card.highlight { background: var(--acc-dim); border-color: rgba(200,255,0,0.3); }
-  .proof-icon { font-size: 2rem; margin-bottom: 14px; }
-  .proof-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-  .proof-card p { font-size: 0.88rem; color: var(--t2); line-height: 1.5; }
-  .proof-result { display: inline-block; margin-top: 12px; background: var(--acc); color: #000; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+  /* ── 3 STEPS ── */
+  .steps { background: var(--s1); }
+  .steps-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
+  .step { background: var(--s2); border-radius: var(--r); padding: 28px 24px; position: relative; }
+  .step-num { font-size: 2.4rem; font-weight: 900; color: var(--acc-dim); line-height: 1; margin-bottom: 8px; }
+  .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+  .step p { color: var(--t2); font-size: 0.92rem; }
 
-  /* ── PROCESS ── */
-  .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .step { text-align: center; }
-  .step-num { width: 52px; height: 52px; background: var(--acc); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; margin: 0 auto 16px; }
-  .step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-  .step p { font-size: 0.88rem; color: var(--t2); }
-  .step-connector { display: none; }
+  /* ── SERVICES ── */
+  .services { background: var(--bg); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+  .srv-card { background: var(--s2); border: 1px solid var(--border); border-radius: var(--r); padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; }
+  .srv-card.featured { border-color: var(--acc); background: linear-gradient(135deg, var(--s2) 0%, rgba(200,255,0,.06) 100%); }
+  .srv-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--acc); }
+  .srv-card h3 { font-size: 1.25rem; font-weight: 800; }
+  .srv-card p { color: var(--t2); font-size: 0.92rem; flex: 1; }
+  .srv-price { font-size: 1.3rem; font-weight: 800; color: var(--acc); }
+  .srv-cta { display: inline-block; background: var(--acc); color: #000; font-weight: 700; padding: 12px 24px; border-radius: 7px; font-size: 0.9rem; text-align: center; margin-top: 4px; }
+  .srv-cta:hover { background: var(--acc2); }
+  .srv-cta.outline { background: transparent; border: 1px solid var(--acc); color: var(--acc); }
+  .srv-cta.outline:hover { background: var(--acc-dim); }
+
+  /* ── GEO AUDIT ── */
+  .geo { background: var(--s1); }
+  .geo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .geo-visual { background: var(--s3); border-radius: var(--r); padding: 32px; border: 1px solid var(--border); }
+  .geo-bar { margin-bottom: 16px; }
+  .geo-bar-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; }
+  .geo-bar-label .score { font-weight: 700; }
+  .bar-track { background: var(--s1); border-radius: 4px; height: 8px; }
+  .bar-fill { height: 8px; border-radius: 4px; background: var(--acc); }
+  .bar-fill.bad { background: #ef4444; }
+  .bar-fill.mid { background: #f59e0b; }
+
+  /* ── GUARANTEE ── */
+  .guarantee { background: var(--bg); }
+  .guarantee-box { background: var(--s2); border: 1px solid rgba(200,255,0,.3); border-radius: var(--r); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .guarantee-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+  .guarantee-box p { color: var(--t2); }
+  .urgency-box { background: rgba(200,255,0,.08); border: 1px solid rgba(200,255,0,.2); border-radius: 10px; padding: 20px 24px; }
+  .urgency-box .counter { font-size: 2rem; font-weight: 900; color: var(--acc); margin-bottom: 4px; }
+  .urgency-box p { font-size: 0.88rem; color: var(--t2); }
 
   /* ── ABOUT ── */
-  .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
-  .about-img { border-radius: 12px; overflow: hidden; }
-  .about-img img { width: 100%; display: block; }
-  .about-name { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
-  .about-role { color: var(--acc); font-weight: 600; margin-bottom: 18px; }
-  .about-text { font-size: 0.95rem; color: var(--t2); line-height: 1.7; margin-bottom: 20px; }
-  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { background: var(--acc-dim); color: var(--acc); padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; }
+  .about { background: var(--s1); }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .about-text h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 16px; }
+  .about-text p { color: var(--t2); margin-bottom: 14px; font-size: 0.97rem; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .astat { background: var(--s3); border-radius: 10px; padding: 20px; }
+  .astat .val { font-size: 1.6rem; font-weight: 900; color: var(--acc); }
+  .astat p { font-size: 0.82rem; color: var(--t3); margin-top: 2px; }
 
-  /* ── CTA FORMS ── */
-  .cta-section { background: var(--s2); color: var(--t1); padding: 80px 5%; }
-  .cta-inner { max-width: 1100px; margin: 0 auto; }
-  .cta-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 10px; }
-  .cta-sub { text-align: center; color: var(--t2); margin-bottom: 50px; font-size: 1rem; }
-  .cta-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-  .cta-card { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 16px; padding: 36px 30px; }
-  .cta-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
-  .cta-card p { font-size: 0.9rem; color: var(--t2); margin-bottom: 24px; line-height: 1.5; }
-  .cta-price { font-size: 1.5rem; font-weight: 800; color: var(--acc); margin-bottom: 20px; }
-  .form-group { margin-bottom: 14px; }
-  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 5px; color: var(--t2); }
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 10px 14px; background: var(--s3);
-    border: 1px solid var(--border); border-radius: 7px; color: var(--t1);
-    font-size: 0.9rem; font-family: inherit;
+  /* ── FORM ── */
+  .form-section { background: var(--s2); }
+  .form-box { max-width: 620px; margin: 40px auto 0; background: var(--s3); border: 1px solid var(--border); border-radius: var(--r); padding: 40px; }
+  .form-box h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+  .form-box .form-sub { color: var(--t2); font-size: 0.92rem; margin-bottom: 24px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 0.82rem; color: var(--t3); margin-bottom: 5px; font-weight: 600; }
+  .field input, .field select, .field textarea {
+    width: 100%; background: var(--s1); border: 1px solid var(--border); border-radius: 7px;
+    color: var(--t1); padding: 10px 14px; font-size: 0.92rem; outline: none;
   }
-  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--t3); }
-  .form-group textarea { resize: vertical; min-height: 80px; }
-  .btn-submit { width: 100%; background: var(--acc); color: #000; padding: 14px; border-radius: 8px; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; margin-top: 6px; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--acc); }
+  .field select option { background: var(--s1); }
+  .field textarea { resize: vertical; min-height: 80px; }
+  .btn-submit { width: 100%; background: var(--acc); color: #000; font-weight: 800; font-size: 1rem; padding: 14px; border: none; border-radius: 8px; cursor: pointer; margin-top: 8px; }
   .btn-submit:hover { background: var(--acc2); }
 
+  /* ── GEO FORM ── */
+  .geo-form-section { background: var(--bg); padding: 64px 5%; }
+  .geo-form-inner { max-width: 620px; margin: 0 auto; }
+  .geo-form-box { background: var(--s2); border: 1px solid rgba(200,255,0,.2); border-radius: var(--r); padding: 40px; }
+  .geo-form-box h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+  .geo-form-box .form-sub { color: var(--t2); font-size: 0.92rem; margin-bottom: 24px; }
+  .price-tag { display: inline-block; background: var(--acc-dim); color: var(--acc); font-weight: 800; font-size: 1.1rem; padding: 6px 18px; border-radius: 6px; margin-bottom: 20px; }
+
   /* ── FOOTER ── */
-  footer { background: #070d14; color: #64748b; padding: 28px 5%; text-align: center; font-size: 0.85rem; }
+  footer { background: var(--s1); border-top: 1px solid var(--border); padding: 32px 5%; text-align: center; }
+  footer p { color: var(--t3); font-size: 0.85rem; }
+
+  /* ── STICKY MOBILE CTA ── */
+  .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--acc); padding: 14px 20px; text-align: center; }
+  .sticky-cta a { color: #000; font-weight: 800; font-size: 1rem; display: block; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-photo { order: -1; text-align: center; }
-    .hero-photo img { max-width: 240px; margin: 0 auto; }
-    .photo-badge { left: 50%; transform: translateX(-50%); }
-    .hero h1 { font-size: 1.7rem; }
-    .hook-stats { grid-template-columns: 1fr; }
-    .services-grid { grid-template-columns: 1fr; }
-    .proof-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; }
-    .cta-cards { grid-template-columns: 1fr; }
-    .section-title { font-size: 1.5rem; }
+    .hero h1 { font-size: 1.9rem; }
+    .section-title { font-size: 1.6rem; }
+    .geo-inner, .guarantee-box, .about-inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .sticky-cta { display: block; }
+    body { padding-bottom: 60px; }
   }
 </style>
 </head>
@@ -183,426 +166,279 @@
 <!-- NAVBAR -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">Галина Лаврік · AI Automation</div>
-    <a href="#contact" class="nav-cta">Отримати консультацію</a>
+    <div class="nav-logo">
+      <img src="lavrik-logo.png" alt="LavrikGEO" onerror="this.style.display='none'">
+      LavrikGEO
+    </div>
+    <a href="#contact" class="nav-cta">Отримати план →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-tag">AI Automation Specialist</div>
-      <h1>Що, якщо ваш бізнес міг би заощадити <span>10+ годин</span> на тиждень — без нових співробітників?</h1>
-      <p class="hero-sub">Впроваджую AI-агентів і системи автоматизації для малого та середнього бізнесу. Швидко. Зрозуміло. Без IT-відділу.</p>
-      <div class="hero-btns">
-        <a href="#contact-geo" class="btn-primary">GEO-аудит за $190 →</a>
-        <a href="#contact-auto" class="btn-secondary">Автоматизувати процес</a>
+    <div class="hero-tag">AI-автоматизація для українського бізнесу</div>
+    <h1>Ваша рутина з'їдає <em>10+ годин</em> на тиждень. AI-агент зробить це за вас — через 3 тижні.</h1>
+    <p class="hero-sub">Я будую автоматичні системи, які закривають ліди, відповідають клієнтам і генерують звіти — поки ви займаєтесь бізнесом.</p>
+    <a href="#contact" class="hero-cta">Отримати план автоматизації за 48 годин</a>
+    <p class="hero-note">Безкоштовна діагностика · Без зобов'язань</p>
+  </div>
+</section>
+
+<!-- PAIN — "Знайомо?" -->
+<section class="pain">
+  <div class="section-inner">
+    <div class="section-label">Болі власника</div>
+    <h2 class="section-title">Знайомо?</h2>
+    <p class="section-sub">Більшість підприємців витрачають час не на ріст — а на задачі, які давно мав би виконувати AI.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="icon">📧</div>
+        <p>Щодня відповідаєте на одні й ті ж запитання від клієнтів у месенджерах</p>
       </div>
-      <div class="hero-bullets">
-        <div class="hero-bullet">Впроваджено 4+ проєкти автоматизації та аудиту</div>
-        <div class="hero-bullet">Відповідь протягом 24 годин</div>
-        <div class="hero-bullet">Без технічного жаргону — пояснюю зрозумілою мовою</div>
-        <div class="hero-bullet">Канада, Україна, Європа — працюю дистанційно</div>
-        <div class="hero-bullet">~20 год/тиждень економить мій власний AI-агент</div>
+      <div class="pain-card">
+        <div class="icon">📊</div>
+        <p>Вручну збираєте звіти, переносите дані між таблицями, робите скріни</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🔁</div>
+        <p>Ліди "зависають" без відповіді — бо нема часу обробляти їх вчасно</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">😤</div>
+        <p>Персонал витрачає години на монотонні задачі замість важливої роботи</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOOK -->
-<section class="hook">
-  <div class="hook-inner">
-    <p class="hook-quote">
-      Ви замислювались, що щотижня ваш бізнес може заощаджувати <em>більше 10 годин</em> ручної рутинної праці — і при цьому отримувати <em>якісніший результат без помилок?</em><br><br>
-      Так, це реально. Вже сотні підприємств так і працюють.<br>
-      <em>А що стримує вас?</em>
-    </p>
-    <div class="hook-stats">
-      <div class="stat-card">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">годин на тиждень економить один AI-агент на одного співробітника</div>
+<!-- SHOCKING NUMBERS -->
+<section class="numbers">
+  <div class="section-inner">
+    <div class="section-label">Реальність ринку</div>
+    <h2 class="section-title">Поки ви вагаєтесь — конкуренти вже автоматизують</h2>
+    <div class="numbers-grid">
+      <div class="num-card">
+        <div class="big">0/100</div>
+        <p>Українських малих бізнесів у відповідях AI-пошуку — без GEO-оптимізації</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">3–4</div>
-        <div class="stat-label">тижні від старту до першого результату — типовий термін впровадження</div>
+      <div class="num-card">
+        <div class="big">15×</div>
+        <p>Швидше обробляє заявки AI-агент порівняно з живим менеджером</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">0</div>
-        <div class="stat-label">нових IT-спеціалістів не потрібно — агент вбудовується у вашу систему</div>
+      <div class="num-card">
+        <div class="big">25%</div>
+        <p>Клієнтів втрачається через запізнілу відповідь (понад 1 годину)</p>
+      </div>
+      <div class="num-card">
+        <div class="big">3 тижні</div>
+        <p>— і ваш перший AI-агент вже працює та заощаджує вам час</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 STEPS -->
+<section class="steps">
+  <div class="section-inner">
+    <div class="section-label">Як це працює</div>
+    <h2 class="section-title">3 кроки до вашого AI-агента</h2>
+    <div class="steps-list">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Діагностика за 48 годин</h3>
+        <p>Ви розповідаєте про бізнес. Я знаходжу 3–5 процесів, які можна автоматизувати вже зараз і рахую економію годин на місяць.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Будуємо агента</h3>
+        <p>Налаштовуємо AI-систему під ваш бізнес: підключаємо до ваших каналів, навчаємо на ваших матеріалах, тестуємо.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Запуск і супровід</h3>
+        <p>Агент запущений. Ви отримуєте звіт, інструкції та підтримку на 30 днів. Якщо щось не так — виправляємо.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="section" id="services">
+<section class="services">
   <div class="section-inner">
-    <div class="section-tag">Послуги</div>
-    <h2 class="section-title">Оберіть свій AI-інструмент</h2>
-    <p class="section-sub">Від швидкого аудиту до повноцінного AI-агента під ваш бізнес-процес</p>
-
+    <div class="section-label">Послуги</div>
+    <h2 class="section-title">Що я роблю</h2>
+    <p class="section-sub">Три напрямки — вибирайте той, що відповідає вашому поточному завданню.</p>
     <div class="services-grid">
-      <!-- GEO AUDIT -->
-      <div class="geo-card">
-        <div class="hero-tag" style="background:rgba(200,255,0,0.15);color:var(--acc);">Найпопулярніше</div>
-        <h3>GEO Бліц-аудит</h3>
-        <div class="price">$190 <sub>/ разово</sub></div>
-        <p>Ваш сайт невидимий для ChatGPT, Google AI і Perplexity? Я проведу аудит і покажу конкретно, що виправити.</p>
-        <ul class="geo-list">
-          <li>Аналіз видимості у 5+ AI-системах</li>
-          <li>Звіт з оцінкою та пріоритетами</li>
-          <li>Конкретні рекомендації без технічного жаргону</li>
-          <li>Результат протягом 48 годин</li>
-        </ul>
-        <a href="#contact-geo" class="btn-white">Замовити аудит →</a>
+      <div class="srv-card">
+        <div class="srv-tag">Старт</div>
+        <h3>AI-агент для обробки заявок</h3>
+        <p>Автоматична відповідь на вхідні ліди у Telegram, Viber, email. Кваліфікація, сортування, передача в CRM.</p>
+        <div class="srv-price">від $500</div>
+        <a href="#contact" class="srv-cta outline">Дізнатись деталі</a>
       </div>
-
-      <!-- AI AGENTS -->
-      <div>
-        <div class="agents-header">AI-агенти під ваш бізнес</div>
-        <div class="agents-sub">Від $1,000 залежно від складності інтеграцій та кількості джерел даних</div>
-        <div class="accordion">
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              📥 Автоматичне розподілення лідів
-              <div class="acc-meta">
-                <span class="acc-tag">Продажі</span>
-                <span class="acc-price">$2,000–$4,500</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Ліди з сайту та пошти розподіляються вручну — із затримками і помилками. Клієнти чекають, частина заявок губиться.</div>
-              <div class="acc-solution">Агент моніторить форми і пошту, класифікує запит і автоматично призначає менеджеру. Сповіщення — в Slack або Teams за лічені секунди.</div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              🧾 Обробка рахунків та виписок
-              <div class="acc-meta">
-                <span class="acc-tag">Фінанси</span>
-                <span class="acc-price">$3,000–$5,000</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Бухгалтери витрачають 2–4 години щодня на ручне перенесення транзакцій з PDF-виписок у систему.</div>
-              <div class="acc-solution">Агент читає виписки автоматично, розпізнає транзакції та вносить дані без участі людини. Точність 99%+, помилок немає.</div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              💬 Обробка звернень клієнтів
-              <div class="acc-meta">
-                <span class="acc-tag">Підтримка</span>
-                <span class="acc-price">$2,500–$4,800</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Оператори витрачають час на те, щоб вручну читати, сортувати й пріоритизувати однотипні запити.</div>
-              <div class="acc-solution">Агент читає кожне звернення, визначає тип і терміновість, призначає виконавця. Відповідь клієнту — за 3 секунди замість черги.</div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              🗓 Запис та нагадування пацієнтам / клієнтам
-              <div class="acc-meta">
-                <span class="acc-tag">Медицина / Сервіс</span>
-                <span class="acc-price">$2,000–$4,000</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Адміністратор витрачає 1.5–2 години щодня лише на дзвінки-нагадування і перенесення записів.</div>
-              <div class="acc-solution">Агент автоматично нагадує про запис, обробляє відміни та пропонує вільні слоти. Без участі адміністратора.</div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              📋 Підсумки зустрічей і задачі
-              <div class="acc-meta">
-                <span class="acc-tag">Продуктивність</span>
-                <span class="acc-price">$1,800–$3,800</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Рішення та задачі з нарад губляться — ніхто не встигає вести протокол.</div>
-              <div class="acc-solution">Агент записує зустріч, генерує підсумок і список задач, надсилає учасникам протягом 5 хвилин після завершення.</div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              🚚 Планування маршрутів та логістика
-              <div class="acc-meta">
-                <span class="acc-tag">Логістика</span>
-                <span class="acc-price">$3,500–$5,000</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Маршрути будуються вручну в Excel — щодня 2+ години, субоптимальні шляхи, зайві витрати пального.</div>
-              <div class="acc-solution">Агент будує оптимальний маршрут на основі актуальних даних. Один клієнт скоротив планування з 2 годин до 15 хвилин на день.</div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              📊 Моніторинг цін конкурентів
-              <div class="acc-meta">
-                <span class="acc-tag">Маркетинг</span>
-                <span class="acc-price">$2,500–$4,500</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Ручне відстеження цін конкурентів — нерегулярне та неточне. Ви реагуєте на зміни ринку із запізненням.</div>
-              <div class="acc-solution">Агент щодня моніторить сайти конкурентів і надсилає звіт з ціновими змінами. Ви завжди в ринку.</div>
-            </div>
-          </div>
-
-          <div class="acc-item">
-            <button class="acc-trigger" onclick="toggle(this)">
-              📱 Моніторинг відгуків у соцмережах
-              <div class="acc-meta">
-                <span class="acc-tag">PR / Маркетинг</span>
-                <span class="acc-price">$1,500–$3,500</span>
-              </div>
-              <span class="acc-arrow">▼</span>
-            </button>
-            <div class="acc-body">
-              <div class="acc-pain"><strong>Біль:</strong> Негативні відгуки або важливі згадки бренду помічаються із запізненням — репутація страждає.</div>
-              <div class="acc-solution">Агент моніторить всі платформи 24/7, виявляє тональність і одразу сповіщає про важливі згадки. Реагуєте вчасно.</div>
-            </div>
-          </div>
-
-        </div><!-- /accordion -->
+      <div class="srv-card featured">
+        <div class="srv-tag">Найпопулярніше</div>
+        <h3>Повна автоматизація процесів</h3>
+        <p>Аналіз бізнесу → побудова системи з 3–5 агентів → автозвіти, автопродажі, автопідтримка клієнтів.</p>
+        <div class="srv-price">від $1 200</div>
+        <a href="#contact" class="srv-cta">Отримати план →</a>
       </div>
-    </div><!-- /services-grid -->
-  </div>
-</section>
-
-<!-- SOCIAL PROOF -->
-<section class="section section-gray" id="proof">
-  <div class="section-inner">
-    <div class="section-tag">Докази роботи</div>
-    <h2 class="section-title">AI — це не теорія, а конкретний результат</h2>
-    <p class="section-sub">Приклади з реального впровадження</p>
-    <div class="proof-grid">
-      <div class="proof-card highlight">
-        <div class="proof-icon">🤖</div>
-        <h4>Мій власний AI-директор (Claude)</h4>
-        <p>Я впровадила AI-агента для управління власним бізнесом: планування задач, дослідження ринку, підготовка звітів, листування. Агент працює 24/7 і виконує роботу, яка раніше займала цілий робочий день.</p>
-        <span class="proof-result">~20 год/тиждень зекономлено</span>
-      </div>
-      <div class="proof-card">
-        <div class="proof-icon">🔍</div>
-        <h4>GEO Бліц-аудити: зразки робіт</h4>
-        <p>Аудит видимості у AI-пошуку для реальних європейських компаній. Кожен звіт містить оцінку, пріоритети та конкретний план дій.</p>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px;">
-          <a href="geo-demo-dentysta-krakow.html" style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--s3);border-radius:7px;border:1px solid var(--border);font-size:0.85rem;text-decoration:none;color:var(--t1);">
-            <span>🦷 Стоматологія · Польща</span><span style="color:#dc2626;font-weight:700;">0/100 F →</span>
-          </a>
-          <a href="geo-demo-akcent-prague.html" style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--s3);border-radius:7px;border:1px solid var(--border);font-size:0.85rem;text-decoration:none;color:var(--t1);">
-            <span>📚 Мовна школа · Чехія</span><span style="color:#d97706;font-weight:700;">25/100 D →</span>
-          </a>
-          <a href="geo-demo-ilaw-poland.html" style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--s3);border-radius:7px;border:1px solid var(--border);font-size:0.85rem;text-decoration:none;color:var(--t1);">
-            <span>⚖️ Юридичні послуги · Польща</span><span style="color:#dc2626;font-weight:700;">15/100 F →</span>
-          </a>
-          <a href="geo-demo-accace-eu.html" style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--s3);border-radius:7px;border:1px solid var(--border);font-size:0.85rem;text-decoration:none;color:var(--t1);">
-            <span>📊 Бухгалтерія/консалтинг · ЄС</span><span style="color:#dc2626;font-weight:700;">15/100 F →</span>
-          </a>
-        </div>
-      </div>
-      <div class="proof-card">
-        <div class="proof-icon">📈</div>
-        <h4>Чому GEO-аудит актуальний зараз</h4>
-        <p>89% B2B-покупців використовують AI під час вибору постачальника. Якщо ваш сайт не оптимізований під LLM-пошук — вас просто не знайдуть через ChatGPT, Perplexity чи Google AI.</p>
-        <span class="proof-result">+40–60% видимості після оптимізації</span>
-      </div>
-      <div class="proof-card">
-        <div class="proof-icon">⚡</div>
-        <h4>Впровадження за 3–4 тижні</h4>
-        <p>Не потрібно чекати місяцями. Типовий AI-агент для одного бізнес-процесу запускається за 3–4 тижні: від аналізу до живого результату.</p>
-        <span class="proof-result">Без IT-відділу і технічного персоналу</span>
+      <div class="srv-card">
+        <div class="srv-tag">Видимість</div>
+        <h3>GEO — AI-пошукова оптимізація</h3>
+        <p>Ваш сайт починає з'являтись у відповідях ChatGPT, Gemini, Perplexity. Ваші клієнти вас знаходять — без реклами.</p>
+        <div class="srv-price">від $600</div>
+        <a href="#geo-audit" class="srv-cta outline">Замовити аудит</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="section" id="process">
+<!-- GEO AUDIT DEMO -->
+<section class="geo" id="geo-audit">
   <div class="section-inner">
-    <div class="section-tag">Як це працює</div>
-    <h2 class="section-title">Три кроки до результату</h2>
-    <p class="section-sub" style="margin-bottom:48px;">Без складних технічних деталей — просто і зрозуміло</p>
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Ви заповнюєте анкету</h4>
-        <p>15 хвилин. Описуєте свій бізнес і ту задачу, яка забирає найбільше часу або грошей.</p>
+    <div class="section-label">GEO Аудит</div>
+    <div class="geo-inner">
+      <div>
+        <h2 class="section-title">Чи знаходить вас AI?</h2>
+        <p style="color:var(--t2); margin-bottom:20px;">89% покупців вже використовують AI-пошук при виборі постачальника. Якщо вас немає у відповідях ChatGPT чи Gemini — ви невидимі для них.</p>
+        <p style="color:var(--t2); margin-bottom:28px;">GEO-аудит показує вашу реальну видимість у AI-системах і дає конкретний план, як потрапити у відповіді.</p>
+        <a href="#geo-form" class="hero-cta" style="font-size:0.95rem; padding:13px 28px;">Замовити GEO-аудит сайту →</a>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>Я аналізую та готую план</h4>
-        <p>Протягом 48 годин — аудит або пропозиція по автоматизації з конкретними цифрами: час, ціна, результат.</p>
+      <div class="geo-visual">
+        <p style="font-size:0.8rem; color:var(--t3); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.08em;">Приклад результатів аудиту</p>
+        <div class="geo-bar">
+          <div class="geo-bar-label"><span>Видимість у ChatGPT</span><span class="score" style="color:#ef4444">12/100</span></div>
+          <div class="bar-track"><div class="bar-fill bad" style="width:12%"></div></div>
+        </div>
+        <div class="geo-bar">
+          <div class="geo-bar-label"><span>Видимість у Gemini</span><span class="score" style="color:#f59e0b">28/100</span></div>
+          <div class="bar-track"><div class="bar-fill mid" style="width:28%"></div></div>
+        </div>
+        <div class="geo-bar">
+          <div class="geo-bar-label"><span>Видимість у Perplexity</span><span class="score" style="color:#ef4444">8/100</span></div>
+          <div class="bar-track"><div class="bar-fill bad" style="width:8%"></div></div>
+        </div>
+        <div class="geo-bar">
+          <div class="geo-bar-label"><span>Загальний GEO Score</span><span class="score" style="color:#ef4444">16/100</span></div>
+          <div class="bar-track"><div class="bar-fill bad" style="width:16%"></div></div>
+        </div>
+        <p style="font-size:0.8rem; color:var(--t3); margin-top:16px;">Більшість бізнесів — нижче 20/100. Після GEO-оптимізації: 55–70/100 за 90 днів.</p>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Впровадження та результат</h4>
-        <p>Ви отримуєте готовий інструмент. Я пояснюю команді як ним користуватись. Підтримка після запуску включена.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE + URGENCY -->
+<section class="guarantee">
+  <div class="section-inner">
+    <div class="guarantee-box">
+      <div>
+        <h2>Гарантія результату</h2>
+        <p style="margin-bottom:16px; color:var(--t2);">Якщо після діагностики я не знайду жодного конкретного процесу для автоматизації у вашому бізнесі — я поверну гроші повністю.</p>
+        <p style="color:var(--t2);">Жодного ризику для вас. Я впевнена в результаті — бо ще не зустрічала бізнес, де нема що автоматизувати.</p>
+      </div>
+      <div class="urgency-box">
+        <div class="counter">5 клієнтів/міс</div>
+        <p style="margin-bottom:12px;">Я беру не більше 5 нових клієнтів на місяць, щоб кожному приділити повну увагу.</p>
+        <p><strong style="color:var(--acc)">Зараз відкрито: 2 місця</strong><br><span style="font-size:0.82rem; color:var(--t3)">Наступна хвиля — через 4 тижні</span></p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section style="background:var(--bg);padding:70px 5%;" id="about">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;">Про мене</div>
-    <h2 style="font-size:2rem;font-weight:800;color:var(--t1);margin-bottom:8px;">Галина Лаврік</h2>
-    <div style="font-size:1rem;font-weight:600;color:var(--acc);margin-bottom:40px;">AI Automation Specialist</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;margin-bottom:40px;">
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
-        <div style="font-size:2.4rem;font-weight:900;color:var(--acc);">20+</div>
-        <div style="font-size:0.85rem;color:var(--t2);margin-top:6px;">годин/тиждень<br>економить мій AI-директор</div>
+<section class="about">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-label">Хто я</div>
+        <h2>Галина Лаврік — AI-консультант для бізнесу</h2>
+        <p>Я допомагаю підприємцям впроваджувати AI-інструменти, які реально заощаджують час і гроші. Спеціалізуюся на мультиагентних системах, автоматизації продажів і GEO-оптимізації для малого та середнього бізнесу.</p>
+        <p>Живу і працюю в Канаді (Квебек). Розумію і пострадянський ринок, і Північноамериканський — будую системи, що працюють в обох культурах.</p>
+        <p>Мій підхід: спочатку цифри і конкретний ROI, потім технології. Жодного «AI заради AI».</p>
       </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
-        <div style="font-size:2.4rem;font-weight:900;color:var(--acc);">3–4</div>
-        <div style="font-size:0.85rem;color:var(--t2);margin-top:6px;">тижні до<br>першого результату</div>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
-        <div style="font-size:2.4rem;font-weight:900;color:var(--acc);">4+</div>
-        <div style="font-size:0.85rem;color:var(--t2);margin-top:6px;">проєкти<br>автоматизації та аудитів</div>
-      </div>
-      <div style="background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;">
-        <div style="font-size:2.4rem;font-weight:900;color:var(--acc);">48г</div>
-        <div style="font-size:0.85rem;color:var(--t2);margin-top:6px;">термін<br>відповіді на запит</div>
-      </div>
-    </div>
-    <div style="background:var(--s2);border:1px solid var(--border);border-radius:14px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
       <div>
-        <p style="color:var(--t2);font-size:0.95rem;line-height:1.75;margin-bottom:16px;">
-          Спеціаліст із впровадження інструментів штучного інтелекту та автоматизації робочих процесів, з більш ніж 15&#8209;річним досвідом у комунікаціях, управлінні контентом та аналітиці. Проєктую AI&#8209;агентів і пайплайни, які скорочують ручну працю, прискорюють прийняття рішень і перетворюють розрізнені дані на прозорі звіти та зрозумілі візуалізації.
-        </p>
-        <p style="color:var(--t2);font-size:0.95rem;line-height:1.75;">
-          Спираюсь на стратегічне мислення, глибокий аналіз і прагматичну реалізацію: від виявлення «болей» бізнесу до побудови повністю автоматизованих ланцюжків — від збору даних до звітів, лендингів і дашбордів.
-        </p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px;justify-content:center;">
-        <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--acc);font-weight:700;font-size:1.1rem;">✓</span><span style="color:var(--t1);font-size:0.9rem;">AI-автоматизація бізнес-процесів</span></div>
-        <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--acc);font-weight:700;font-size:1.1rem;">✓</span><span style="color:var(--t1);font-size:0.9rem;">GEO / LLM-оптимізація сайтів</span></div>
-        <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--acc);font-weight:700;font-size:1.1rem;">✓</span><span style="color:var(--t1);font-size:0.9rem;">Мова: українська · англійська · французька</span></div>
-        <div style="display:flex;align-items:center;gap:12px;"><span style="color:var(--acc);font-weight:700;font-size:1.1rem;">✓</span><span style="color:var(--t1);font-size:0.9rem;">Працюю дистанційно: Канада, Україна, Європа</span></div>
+        <div class="about-stats">
+          <div class="astat"><div class="val">3+ роки</div><p>в AI-автоматизації</p></div>
+          <div class="astat"><div class="val">40+</div><p>побудованих AI-систем</p></div>
+          <div class="astat"><div class="val">10 год/тиж</div><p>середня економія клієнтів</p></div>
+          <div class="astat"><div class="val">Канада 🇨🇦</div><p>Чикутімі, Квебек</p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FORMS -->
-<section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <h2 class="cta-title">Оберіть свій перший крок</h2>
-    <p class="cta-sub">Заповніть анкету — відповідь протягом 24 годин</p>
-    <div class="cta-cards">
-
-      <!-- GEO AUDIT FORM -->
-      <div class="cta-card" id="contact-geo">
-        <h3>🔍 GEO Бліц-аудит</h3>
-        <div class="cta-price">$190</div>
-        <p>Дізнайтесь, чи знаходить вас ChatGPT, Perplexity, Google AI — і що виправити щоб вас помічали першими.</p>
-        <form onsubmit="submitGeo(event)">
-          <div class="form-group">
-            <label>Контактна особа *</label>
-            <input type="text" name="name" placeholder="Ваше ім'я та посада" required>
-          </div>
-          <div class="form-group">
-            <label>Опишіть коротко ваш бізнес та сайт *</label>
-            <textarea name="description" placeholder="Наприклад: стоматологічна клініка в Києві, сайт clinic.ua" required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Telegram / Viber / WhatsApp *</label>
-            <input type="text" name="contact" placeholder="+380XXXXXXXXX або @username" required>
-          </div>
-          <div class="form-group">
-            <label>Зручний час для зв'язку</label>
-            <input type="text" name="time" placeholder="Наприклад: будні 10:00–18:00">
-          </div>
-          <button type="submit" class="btn-submit">Замовити GEO-аудит →</button>
-        </form>
+<!-- MAIN FORM -->
+<section class="form-section" id="contact">
+  <div class="section-inner" style="text-align:center">
+    <div class="section-label">Безкоштовна діагностика</div>
+    <h2 class="section-title">Отримайте план автоматизації за 48 годин</h2>
+    <p class="section-sub" style="margin:0 auto 0">Розкажіть про свій бізнес — я надішлю конкретні кроки, які можна зробити вже зараз.</p>
+  </div>
+  <div class="form-box">
+    <h3>Залишити заявку</h3>
+    <p class="form-sub">Відповідаю протягом 24 годин · Без зобов'язань</p>
+    <form action="mailto:pr.expert4488@gmail.com" method="post" enctype="text/plain">
+      <div class="form-row">
+        <div class="field"><label>Ваше ім'я *</label><input type="text" name="name" placeholder="Іван Коваленко" required></div>
+        <div class="field"><label>Email або Telegram *</label><input type="text" name="contact" placeholder="@telegram або email" required></div>
       </div>
-
-      <!-- AUTOMATION FORM -->
-      <div class="cta-card" id="contact-auto">
-        <h3>⚡ Автоматизація процесу</h3>
-        <div class="cta-price">від $1,000</div>
-        <p>Опишіть, яка рутина забирає найбільше часу — я покажу, як її автоматизувати і що це дасть у цифрах.</p>
-        <form onsubmit="submitAuto(event)">
-          <div class="form-group">
-            <label>Контактна особа *</label>
-            <input type="text" name="name" placeholder="Ваше ім'я та посада" required>
-          </div>
-          <div class="form-group">
-            <label>Опишіть коротко, що хочете автоматизувати *</label>
-            <textarea name="description" placeholder="Наприклад: ручне введення рахунків займає 3 год/день" required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Telegram / Viber / WhatsApp *</label>
-            <input type="text" name="contact" placeholder="+380XXXXXXXXX або @username" required>
-          </div>
-          <div class="form-group">
-            <label>Зручний час для зв'язку</label>
-            <input type="text" name="time" placeholder="Наприклад: будні 10:00–18:00">
-          </div>
-          <button type="submit" class="btn-submit">Отримати безкоштовну консультацію →</button>
-        </form>
+      <div class="field"><label>Сфера бізнесу *</label>
+        <select name="industry">
+          <option value="">Оберіть...</option>
+          <option>Стоматологія / медицина</option>
+          <option>Нерухомість</option>
+          <option>Юридичні послуги</option>
+          <option>Бухгалтерія / фінанси</option>
+          <option>Торгівля / e-commerce</option>
+          <option>Ресторан / HoReCa</option>
+          <option>IT / Software</option>
+          <option>Освіта / курси</option>
+          <option>Інше</option>
+        </select>
       </div>
+      <div class="field"><label>Головний біль прямо зараз</label><textarea name="problem" placeholder="Що займає найбільше часу? Що хотілося б автоматизувати першим?"></textarea></div>
+      <div class="field"><label>Зручний месенджер для зв'язку</label><input type="text" name="messenger" placeholder="Telegram / WhatsApp / Viber / Email"></div>
+      <button type="submit" class="btn-submit">Отримати план автоматизації →</button>
+    </form>
+  </div>
+</section>
 
+<!-- GEO FORM -->
+<section class="geo-form-section" id="geo-form">
+  <div class="geo-form-inner">
+    <div style="text-align:center; margin-bottom:32px;">
+      <div class="section-label">GEO Аудит</div>
+      <h2 class="section-title">Дізнайтесь, чи видимий ваш сайт в AI</h2>
+      <p class="section-sub" style="margin:0 auto">Детальний звіт: скільки разів вас згадує ChatGPT, Gemini і Perplexity — і що зробити, щоб потрапити в топ.</p>
+    </div>
+    <div class="geo-form-box">
+      <div class="price-tag">від $190</div>
+      <h3>Замовити GEO-аудит</h3>
+      <p class="form-sub">Звіт готовий за 48 годин · Конкретні рекомендації · PDF + відеорозбір</p>
+      <form action="mailto:pr.expert4488@gmail.com" method="post" enctype="text/plain">
+        <div class="field"><label>Ім'я та компанія *</label><input type="text" name="name" placeholder="Олена — Dental Studio" required></div>
+        <div class="field"><label>URL сайту *</label><input type="url" name="url" placeholder="https://your-site.com" required></div>
+        <div class="field"><label>Email або Telegram *</label><input type="text" name="contact" placeholder="@telegram або email" required></div>
+        <div class="field"><label>Головне питання до аудиту</label><input type="text" name="question" placeholder="Наприклад: чому конкуренти в ChatGPT, а ми — ні?"></div>
+        <button type="submit" class="btn-submit">Замовити GEO-аудит →</button>
+      </form>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Галина Лаврік · AI Automation Specialist · pr.expert4488@gmail.com</p>
+  <p>© 2025 Галина Лаврік · LavrikGEO · Чикутімі, Квебек, Канада · <a href="mailto:pr.expert4488@gmail.com" style="color:var(--acc)">pr.expert4488@gmail.com</a></p>
 </footer>
 
-<script>
-// Accordion toggle
-function toggle(btn) {
-  const body = btn.nextElementSibling;
-  const arrow = btn.querySelector('.acc-arrow');
-  const isOpen = body.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
-  document.querySelectorAll('.acc-arrow').forEach(a => a.style.transform = '');
-  if (!isOpen) {
-    body.classList.add('open');
-    arrow.style.transform = 'rotate(180deg)';
-  }
-}
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="#contact">Отримати план автоматизації →</a>
+</div>
 
-function submitGeo(e) {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  const body = encodeURIComponent(`GEO Аудит - запит\nКонтакт: ${data.get('name')}\nБізнес: ${data.get('description')}\nMessenger: ${data.get('contact')}\nЗручний час: ${data.get('time')}`);
-  window.location.href = `mailto:pr.expert4488@gmail.com?subject=GEO%20Аудит%20%24190%20-%20запит&body=${body}`;
-  e.target.innerHTML = '<p style="color:var(--acc);font-weight:700;text-align:center;padding:20px;">✓ Дякую! Перевірте ваш email-клієнт і надішліть лист. Зв\'яжусь протягом 24 годин.</p>';
-}
-function submitAuto(e) {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  const body = encodeURIComponent(`Автоматизація - запит\nКонтакт: ${data.get('name')}\nЗадача: ${data.get('description')}\nMessenger: ${data.get('contact')}\nЗручний час: ${data.get('time')}`);
-  window.location.href = `mailto:pr.expert4488@gmail.com?subject=Автоматизація%20бізнесу%20-%20запит&body=${body}`;
-  e.target.innerHTML = '<p style="color:var(--acc);font-weight:700;text-align:center;padding:20px;">✓ Дякую! Перевірте ваш email-клієнт і надішліть лист. Зв\'яжусь протягом 24 годин.</p>';
-}
-</script>
 </body>
 </html>
