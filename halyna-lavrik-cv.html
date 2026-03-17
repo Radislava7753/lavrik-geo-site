@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halyna Lavrik — Spécialiste en automatisation IA</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2330;
+    --border: #30363d;
+    --accent: #2dd4bf;
+    --accent2: #38bdf8;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --green: #3fb950;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0f2027, #1a3a4a, #0d1117);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 40px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(45,212,191,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .hero-title {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    font-size: 0.88rem;
+    color: var(--text2);
+    margin-bottom: 28px;
+  }
+  .hero-contact span { display: flex; align-items: center; gap: 6px; }
+  .hero-contact .dot { color: var(--accent); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--text2);
+    margin-top: 2px;
+  }
+
+  /* ── OBJECTIF BOX ── */
+  .objectif-box {
+    background: rgba(45,212,191,0.06);
+    border: 1px solid rgba(45,212,191,0.25);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 0.93rem;
+  }
+  .objectif-box strong { color: var(--accent); }
+
+  /* ── PRINT BUTTON ── */
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #0d1117;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 28px;
+    transition: opacity 0.2s;
+  }
+  .print-btn:hover { opacity: 0.85; }
+
+  /* ── ACCORDION ── */
+  .section { margin-bottom: 14px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .section-header:hover { background: var(--bg3); }
+  .section-header.open { border-radius: 10px 10px 0 0; border-bottom-color: transparent; }
+
+  .section-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-icon { font-size: 1rem; }
+
+  .chevron {
+    color: var(--text2);
+    font-size: 0.8rem;
+    transition: transform 0.25s;
+  }
+  .section-header.open .chevron { transform: rotate(180deg); }
+
+  .section-body {
+    display: none;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 20px 24px;
+  }
+  .section-body.open { display: block; }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    background: rgba(45,212,191,0.08);
+    border: 1px solid rgba(45,212,191,0.2);
+    color: var(--accent);
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  /* ── PROJECT CARDS ── */
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .project-card:last-child { margin-bottom: 0; }
+
+  .project-title {
+    font-weight: 600;
+    color: var(--accent2);
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+  .project-meta {
+    font-size: 0.8rem;
+    color: var(--text2);
+    margin-bottom: 10px;
+  }
+  .project-body { font-size: 0.88rem; color: var(--text); }
+  .project-body ul { padding-left: 18px; }
+  .project-body li { margin-bottom: 4px; }
+  .result-line {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(63,185,80,0.08);
+    border-left: 3px solid var(--green);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #7ee787;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline-item {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--border);
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 6px;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .job-title { font-weight: 600; color: #fff; font-size: 0.93rem; }
+  .job-company { color: var(--accent); font-size: 0.88rem; }
+  .job-period { color: var(--text2); font-size: 0.82rem; margin-bottom: 6px; }
+  .job-desc { font-size: 0.87rem; }
+  .job-desc ul { padding-left: 18px; }
+  .job-desc li { margin-bottom: 3px; }
+
+  /* ── FORMATION ── */
+  .edu-item { margin-bottom: 16px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree { font-weight: 600; color: #fff; }
+  .edu-school { color: var(--accent2); font-size: 0.88rem; }
+  .edu-note { color: var(--text2); font-size: 0.83rem; margin-top: 2px; }
+
+  .module-list { margin-top: 14px; }
+  .module-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+  }
+  .module-name { font-weight: 600; font-size: 0.88rem; color: var(--accent2); }
+  .module-desc { font-size: 0.84rem; color: var(--text2); margin-top: 3px; }
+
+  /* ── LANG & BENEVOLAT ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .lang-item { margin-bottom: 10px; }
+  .lang-name { font-weight: 600; color: #fff; font-size: 0.9rem; }
+  .lang-level { color: var(--text2); font-size: 0.84rem; }
+  .benev-item { margin-bottom: 8px; font-size: 0.88rem; }
+  .benev-item::before { content: '♡  '; color: var(--accent); }
+
+  /* ── FOOTER ── */
+  .cv-footer {
+    text-align: center;
+    color: var(--text2);
+    font-size: 0.8rem;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── PRINT STYLES ── */
+  @media print {
+    body { background: #fff !important; color: #1a1a1a !important; font-size: 11pt; }
+    .page { max-width: 100%; padding: 0; }
+    .print-btn { display: none !important; }
+
+    .hero {
+      background: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+      border-radius: 4px;
+      page-break-inside: avoid;
+    }
+    .hero::before { display: none; }
+    .hero-name { color: #0f172a !important; font-size: 22pt; }
+    .hero-title { color: #0891b2 !important; }
+    .hero-contact { color: #475569 !important; }
+    .hero-contact .dot { color: #0891b2 !important; }
+    .stat-card { background: #f1f5f9 !important; border-color: #cbd5e1 !important; }
+    .stat-num { color: #0891b2 !important; }
+    .stat-label { color: #64748b !important; }
+
+    .objectif-box {
+      background: #f0fdfa !important;
+      border-color: #0891b2 !important;
+    }
+    .objectif-box strong { color: #0891b2 !important; }
+
+    .section-header {
+      background: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+      border-radius: 4px !important;
+      page-break-after: avoid;
+    }
+    .section-header.open { border-radius: 4px 4px 0 0 !important; }
+    .section-title { color: #0f172a !important; }
+    .chevron { display: none; }
+
+    .section-body {
+      display: block !important;
+      background: #fff !important;
+      border-color: #cbd5e1 !important;
+      border-radius: 0 0 4px 4px !important;
+    }
+
+    .project-card { background: #f8fafc !important; border-color: #cbd5e1 !important; break-inside: avoid; }
+    .project-title { color: #0369a1 !important; }
+    .result-line { background: #f0fdf4 !important; color: #166534 !important; }
+    .skill-tag { background: #f0fdfa !important; border-color: #0891b2 !important; color: #0891b2 !important; }
+    .timeline-item { border-left-color: #94a3b8 !important; }
+    .timeline-item::before { background: #0891b2 !important; }
+    .job-title { color: #0f172a !important; }
+    .job-company { color: #0891b2 !important; }
+    .edu-degree { color: #0f172a !important; }
+    .edu-school { color: #0369a1 !important; }
+    .module-name { color: #0369a1 !important; }
+    .module-item { background: #f8fafc !important; border-color: #cbd5e1 !important; }
+    .lang-name { color: #0f172a !important; }
+    .cv-footer { color: #64748b !important; border-top-color: #cbd5e1 !important; }
+
+    .section { page-break-inside: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 24px 20px; }
+    .hero-name { font-size: 1.6rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-name">Halyna Lavrik</div>
+    <div class="hero-title">Spécialiste en automatisation IA &nbsp;·&nbsp; Agents IA &amp; Systèmes multi-agents</div>
+    <div class="hero-contact">
+      <span><span class="dot">📍</span> Chicoutimi (Saguenay–Lac-Saint-Jean), QC, Canada</span>
+      <span><span class="dot">📞</span> (438) 394-5812</span>
+      <span><span class="dot">✉</span> <a href="mailto:pr.expert4488@gmail.com">pr.expert4488@gmail.com</a></span>
+      <span><span class="dot">💬</span> Telegram : @RadislavaLav</span>
+      <span><span class="dot">🔗</span> <a href="https://www.linkedin.com/in/lavrikgeo" target="_blank">linkedin.com/in/lavrikgeo</a></span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">ans d'expérience professionnelle</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">5</span>
+        <span class="stat-label">projets IA déployés en production</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">−90%</span>
+        <span class="stat-label">temps de traitement sur les pipelines automatisés</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OBJECTIF -->
+  <div class="objectif-box">
+    <strong>Objectif professionnel :</strong> Poste de spécialiste en automatisation IA au sein d'une entreprise qui développe ou intègre des solutions IA — agents intelligents, systèmes multi-agents, automatisation des processus d'affaires — avec possibilité de télétravail ou de travail en région SLSJ.
+  </div>
+
+  <!-- PRINT BUTTON -->
+  <button class="print-btn" onclick="window.print()">
+    ⬇ Sauvegarder en PDF (Ctrl+P)
+  </button>
+
+  <!-- PROFIL -->
+  <div class="section">
+    <div class="section-header open" onclick="toggle(this)">
+      <span class="section-title"><span class="section-icon">👤</span> Profil</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body open">
+      <p style="margin-bottom:12px">
+        Après 15 ans en communications stratégiques et en direction de rédaction en Ukraine — directrice d'agence RP, rédactrice en chef de publications spécialisées, consultante en communication pour des projets internationaux — j'ai immigré au Canada en 2022 et effectué une reconversion professionnelle vers l'automatisation par l'intelligence artificielle.
+      </p>
+      <p style="margin-bottom:12px">
+        Cette transition est naturelle : de l'analyse de contenu à l'analyse de processus d'affaires, puis à la conception de pipelines automatisés et d'architectures multi-agents. Ma formation en francisation au Québec et mon adaptation au marché canadien se poursuivent activement.
+      </p>
+      <p style="margin-bottom:12px">
+        Aujourd'hui, je conçois et déploie des agents IA capables de réduire significativement le travail manuel, d'accélérer la prise de décision et de transformer des données dispersées en rapports structurés et en visualisations claires.
+      </p>
+      <p>
+        Mon approche : analyser les <strong>enjeux opérationnels</strong> d'une entreprise, identifier les processus automatisables, puis concevoir des architectures complètes — de la collecte de données jusqu'aux rapports, tableaux de bord et pages d'atterrissage.
+      </p>
+    </div>
+  </div>
+
+  <!-- COMPÉTENCES -->
+  <div class="section">
+    <div class="section-header open" onclick="toggle(this)">
+      <span class="section-title"><span class="section-icon">⚙️</span> Compétences clés</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body open">
+      <div class="skills-grid">
+        <span class="skill-tag">Orchestration d'agents IA</span>
+        <span class="skill-tag">Systèmes multi-agents (Directeur–Exécutant)</span>
+        <span class="skill-tag">Automatisation des workflows</span>
+        <span class="skill-tag">Python · LLM API</span>
+        <span class="skill-tag">Gemini API · Claude API · OpenRouter</span>
+        <span class="skill-tag">Lead Intelligence &amp; OSINT</span>
+        <span class="skill-tag">RAG &amp; gestion des connaissances</span>
+        <span class="skill-tag">NotebookLM · Google Drive API</span>
+        <span class="skill-tag">Tailwind CSS · Chart.js · D3.js</span>
+        <span class="skill-tag">OAuth 2.0 · REST API</span>
+        <span class="skill-tag">Prompt Engineering &amp; QA</span>
+        <span class="skill-tag">Stratégie IA &amp; analyse ROI</span>
+        <span class="skill-tag">CLI Linux / WSL</span>
+        <span class="skill-tag">Telegram Bot API</span>
+        <span class="skill-tag">GEO (Generative Engine Optimization)</span>
+        <span class="skill-tag">Visualisation de données</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJETS IA -->
+  <div class="section">
+    <div class="section-header open" onclick="toggle(this)">
+      <span class="section-title"><span class="section-icon">🤖</span> Expérience en automatisation et agents IA</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body open">
+      <div style="color:var(--text2); font-size:0.85rem; margin-bottom:16px">Spécialiste en automatisation IA (freelance / projets personnels) · 2023 – aujourd'hui</div>
+
+      <div class="project-card">
+        <div class="project-title">Pipeline de recherche et d'évaluation de prospects (AI Lead Gen &amp; Scoring)</div>
+        <div class="project-meta">Outils : Parallel.ai · Gemini API · Python · JSON</div>
+        <div class="project-body">
+          <ul>
+            <li>Recherche automatique d'entreprises cibles selon la géographie, le secteur et la taille</li>
+            <li>Évaluation de leur maturité numérique et de leur préparation à l'IA</li>
+            <li>Algorithmes de scoring : Digital Maturity &amp; AI Readiness Index</li>
+          </ul>
+          <div class="result-line">↓ 90% du temps de préparation des bases de prospection · Indice d'opportunité d'automatisation pour un ciblage précis</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">« Second cerveau » — pont RAG avec NotebookLM</div>
+        <div class="project-meta">Outils : Google Drive API · NotebookLM · Python · OAuth 2.0</div>
+        <div class="project-body">
+          <ul>
+            <li>Base de connaissances unifiée reliée au travail des agents IA</li>
+            <li>Scripts de synchronisation automatique des documents</li>
+          </ul>
+          <div class="result-line">Extraction d'insights depuis des milliers de pages en quelques secondes, sans copier-coller manuel</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Architecture multi-agents « Directeur – Exécutant »</div>
+        <div class="project-meta">Outils : Claude · Gemini · Python · protocoles Markdown</div>
+        <div class="project-body">
+          <ul>
+            <li>Agent directeur décompose les tâches et les distribue entre agents spécialisés</li>
+            <li>Protocoles d'interaction et gestion du cycle de vie des tâches (Agent Supervision Loop)</li>
+          </ul>
+          <div class="result-line">Stabilité accrue sur les tâches complexes · Exécution de plusieurs projets en parallèle</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Usine de contenu visuel et de pages d'atterrissage (AI Content Factory)</div>
+        <div class="project-meta">Outils : Tailwind CSS · Chart.js · D3.js · HTML rendering via Python</div>
+        <div class="project-body">
+          <ul>
+            <li>Génération automatique de pages d'atterrissage, tableaux de bord et infographies</li>
+            <li>Adaptation rapide aux différents marchés (Canada, Ukraine, France)</li>
+          </ul>
+          <div class="result-line">Création de pages d'atterrissage en quelques minutes au lieu de plusieurs semaines</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">Protocole de vérification de la réalité (Truth Verifier &amp; Anti-Hallucination)</div>
+        <div class="project-meta">Outils : logique de vérification croisée · API · skills de contrôle qualité</div>
+        <div class="project-body">
+          <ul>
+            <li>Protection contre les faux rapports d'exécution réussie par les agents IA</li>
+            <li>Pipeline de contrôle qualité intégré dans les chaînes d'automatisation</li>
+          </ul>
+          <div class="result-line">Fiabilité garantie des statuts d'exécution · Suppression des vérifications manuelles</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPÉRIENCE PRO -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <span class="section-title"><span class="section-icon">💼</span> Expérience professionnelle</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="timeline-item">
+        <div class="job-title">Coordonnatrice marketing</div>
+        <div class="job-company">La Saguenéenne Hôtel · Chicoutimi, Canada</div>
+        <div class="job-period">Août 2024 – Avril 2025</div>
+        <div class="job-desc">
+          <ul>
+            <li>Élaboration de stratégies de contenu et rédaction d'articles SEO pour le site web</li>
+            <li>Utilisation d'outils d'IA pour générer des brouillons, sélectionner des mots-clés et analyser le trafic</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="job-title">Couturière <span style="color:var(--text2); font-weight:400; font-size:0.85rem">(emploi de transition à l'arrivée au Canada)</span></div>
+        <div class="job-company">Identification Sport · La Baie, Canada</div>
+        <div class="job-period">Novembre 2022 – Janvier 2024</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="job-title">Rédactrice en chef</div>
+        <div class="job-company">Magazines « Protection du Travail » et « Journal du Médecin-Chef » · Kyiv, Ukraine</div>
+        <div class="job-period">2018 – 2022</div>
+        <div class="job-desc">
+          <ul>
+            <li>Gestion complète du cycle éditorial, stratégie de contenu et management d'équipe</li>
+            <li>En 3 ans : publications devenues leaders de leur segment · revenus publicitaires ×5 · abonnés ×3</li>
+            <li>Adaptation de sujets techniquement complexes pour un large public</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="job-title">Consultante en communication</div>
+        <div class="job-company">Travail de projet · Ukraine</div>
+        <div class="job-period">2013 – 2018</div>
+        <div class="job-desc">
+          <ul>
+            <li>Documentation de projet pour des clusters en agriculture biologique</li>
+            <li>Matériel de communication pour des programmes municipaux et initiatives internationales</li>
+            <li>Dossiers de demande de subventions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="job-title">Directrice d'agence de relations publiques</div>
+        <div class="job-company">PR-Expert · Ukraine</div>
+        <div class="job-period">2009 – 2013</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="job-title">Responsable de projets en relations publiques</div>
+        <div class="job-company">Communication Group · Ukraine</div>
+        <div class="job-period">2005 – 2009</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATION -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <span class="section-title"><span class="section-icon">🎓</span> Formation</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="edu-item">
+        <div class="edu-degree">Doctorat (Kandidat nauk) en philosophie</div>
+        <div class="edu-school">Université d'État de Donetsk · Ukraine</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Maîtrise en économie (Économiste-sociologue)</div>
+        <div class="edu-school">Université d'État de Donetsk · Ukraine</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Diplôme de technicienne en équipements thermotechniques</div>
+        <div class="edu-school">Collège Électrométallurgique de Donetsk · Ukraine</div>
+      </div>
+
+      <hr style="border-color:var(--border); margin:20px 0">
+
+      <div class="edu-item">
+        <div class="edu-degree">Formation complémentaire en IA et automatisation</div>
+        <div class="edu-note" style="color:var(--text2); font-size:0.87rem; margin-bottom:12px">
+          Formation pratique auprès d'experts spécialisés — cours individuels, ateliers en petits groupes et communautés de pratique privées (depuis 2023, formation continue)
+        </div>
+        <div class="module-list">
+          <div class="module-item">
+            <div class="module-name">AI Workflow Automation &amp; Lead Intelligence</div>
+            <div class="module-desc">Pipelines de recherche automatique, scoring et qualification de prospects via LLM et données ouvertes</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Multi-Agent Systems &amp; AI Orchestration</div>
+            <div class="module-desc">Architecture Directeur–Exécutant, décomposition de tâches, orchestration d'agents en parallèle</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">RAG &amp; Knowledge Management for AI Systems</div>
+            <div class="module-desc">Construction de systèmes RAG, « second cerveau » de projet, synchronisation documentaire</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">AI Content &amp; Data Visualization Factory</div>
+            <div class="module-desc">Automatisation de pages d'atterrissage, tableaux de bord et infographies via IA et outils frontend</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-item" style="margin-top:16px">
+        <div class="edu-degree">Francisation intensive au Québec</div>
+        <div class="edu-note">Depuis l'immigration en 2022 · niveau A2 · apprentissage actif continu</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LANGUES + BÉNÉVOLAT -->
+  <div class="section">
+    <div class="section-header" onclick="toggle(this)">
+      <span class="section-title"><span class="section-icon">🌍</span> Langues &amp; Bénévolat</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <strong style="color:var(--text2); font-size:0.8rem; text-transform:uppercase; letter-spacing:.05em">Langues</strong>
+          <div style="margin-top:12px">
+            <div class="lang-item">
+              <div class="lang-name">Français</div>
+              <div class="lang-level">A2 — écrit : bon niveau · oral : apprentissage actif depuis 2022, francisation au Québec</div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-name">Anglais</div>
+              <div class="lang-level">A2 — écrit : bon niveau · oral : en cours d'amélioration</div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-name">Ukrainien &amp; Russe</div>
+              <div class="lang-level">Langues maternelles</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <strong style="color:var(--text2); font-size:0.8rem; text-transform:uppercase; letter-spacing:.05em">Bénévolat</strong>
+          <div style="margin-top:12px">
+            <div class="benev-item">Aide à des femmes âgées vivant seules en Ukraine (soutien financier)</div>
+            <div class="benev-item">Soutien aux bénévoles travaillant avec des animaux sans abri en Ukraine</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-footer">
+    Halyna Lavrik · Chicoutimi, QC · (438) 394-5812 · pr.expert4488@gmail.com
+  </div>
+
+</div>
+
+<script>
+  function toggle(header) {
+    header.classList.toggle('open');
+    const body = header.nextElementSibling;
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
